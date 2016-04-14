@@ -9,6 +9,8 @@ Contains code examples from:
 - Effective Akka - Book, by Jamie Allen - http://shop.oreilly.com/product/0636920028789.do
 - some blogs that I hope I haven't forgotten to mention within the code, among which:
 http://oldfashionedsoftware.com
+
 http://danielwestheide.com/scala/neophytes.html
+
 http://debasishg.blogspot.nl/
 - and some exercises of my own
