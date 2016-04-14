@@ -1,0 +1,15 @@
+*.iml
+.settings
+.classpath
+.project
+.worksheet
+
+target/
+project/target
+project/project
+
+# intellij idea
+.idea
+
+# OSX
+.DS_Store
