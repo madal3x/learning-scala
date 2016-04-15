@@ -19,6 +19,7 @@ object UserProcessor {
 
 //class UserProcessor extends PersistentActor {
 class UserProcessor(publisher: ActorPath) extends PersistentActor with AtLeastOnceDelivery {
+
   import UserProcessor._
 
   val persistenceId = "UserProcessor"
@@ -40,7 +41,7 @@ class UserProcessor(publisher: ActorPath) extends PersistentActor with AtLeastOn
       if (state.isDisabled)
         sender() ! BlogNotPosted(id, "quota reached")
       else {
-        persist(PostCreated(text)) { event =>
+        persist(PostCreated(text)) {event =>
           // at-least-once delivery
           // the last parameter is a sequenceId which is incremented on every delivery
           deliver(publisher)(Publisher.PublishPost(text, _))
@@ -65,7 +66,7 @@ class UserProcessor(publisher: ActorPath) extends PersistentActor with AtLeastOn
 
   // called when actor is recovered
   def receiveRecover = {
-    case e @ PostCreated(text) =>
+    case e@PostCreated(text) =>
       // deliveries are done after recovery is complete
 
       deliver(publisher)(Publisher.PublishPost(text, _))

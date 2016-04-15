@@ -5,7 +5,7 @@ class BankAccount extends Publisher {
 
   def currentBalance = balance
 
-  def withdraw(amount: Int): Unit ={
+  def withdraw(amount: Int): Unit = {
     require(0 < amount)
     require(amount <= balance)
 
@@ -14,7 +14,7 @@ class BankAccount extends Publisher {
     publish()
   }
 
-  def deposit(amount: Int): Unit ={
+  def deposit(amount: Int): Unit = {
     require(0 < amount)
 
     balance += amount

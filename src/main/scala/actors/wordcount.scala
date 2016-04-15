@@ -6,17 +6,18 @@ import akka.actor.ActorRef
 import java.io._
 import scala.io._
 
-case class FileToCount(fileName:String)
-case class WordCount(fileName:String, count: Int)
+case class FileToCount(fileName: String)
+case class WordCount(fileName: String, count: Int)
 case class StartCounting(docRoot: String, numActors: Int)
 
 class WordCountWorker extends Actor {
-  def countWords(fileName:String) = {
+  def countWords(fileName: String) = {
     val dataFile = new File(fileName)
-    Source.fromFile(dataFile).getLines.foldRight(0)(_.split(" ").size + _) }
+    Source.fromFile(dataFile).getLines.foldRight(0)(_.split(" ").size + _)
+  }
 
   def receive = {
-    case FileToCount(fileName:String) =>
+    case FileToCount(fileName: String) =>
       val count = countWords(fileName)
       sender ! WordCount(fileName, count)
   }
@@ -28,7 +29,7 @@ class WordCountWorker extends Actor {
 
 class WordCountMaster extends Actor {
   var fileNames: Seq[String] = Nil
-  var sortedCount : Seq[(String, Int)] = Nil
+  var sortedCount: Seq[(String, Int)] = Nil
 
   def receive = {
     case StartCounting(docRoot, numActors) =>
@@ -39,7 +40,7 @@ class WordCountMaster extends Actor {
     case WordCount(fileName, count) =>
       sortedCount = sortedCount :+ (fileName, count)
       sortedCount = sortedCount.sortWith(_._2 < _._2)
-      if(sortedCount.size == fileNames.size) {
+      if (sortedCount.size == fileNames.size) {
         println("final result " + sortedCount)
         finishSorting()
       }
@@ -57,7 +58,7 @@ class WordCountMaster extends Actor {
     new File(docRoot).list.map(docRoot + _)
 
   private[this] def beginSorting(fileNames: Seq[String], workers: Seq[ActorRef]) {
-    fileNames.zipWithIndex.foreach( e => {
+    fileNames.zipWithIndex.foreach(e => {
       workers(e._2 % workers.size) ! FileToCount(e._1)
     })
   }

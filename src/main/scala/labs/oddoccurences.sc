@@ -8,7 +8,7 @@ def solution(A: Array[Int]): Int = {
 }
 
 def solution2(A: Array[Int]): Int = {
-  A.foldLeft(0)((b,a) => b^a)
+  A.foldLeft(0)((b, a) => b ^ a)
 }
-solution(Array(9,3,9,3,7,2,9,9,2))
-solution2(Array(9,3,9,3,7,2,9,9,2))
+solution(Array(9, 3, 9, 3, 7, 2, 9, 9, 2))
+solution2(Array(9, 3, 9, 3, 7, 2, 9, 9, 2))

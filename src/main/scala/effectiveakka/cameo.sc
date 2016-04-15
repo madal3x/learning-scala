@@ -7,7 +7,6 @@ import akka.actor._
 import akka.event.LoggingReceive
 
 
-
 case class GetCustomerAccountBalances(id: Long)
 case class AccountBalances(
                             checking: Option[List[(Long, BigDecimal)]],
@@ -39,6 +38,7 @@ class AccountBalanceResponseHandler(savingsAccounts: ActorRef, checkingAccounts:
                                     moneyMarketAccounts: ActorRef, originalSender: ActorRef) extends Actor with ActorLogging {
 
   import AccountBalanceResponseHandler._
+
   var checkingBalances, savingsBalances, mmBalances: Option[List[(Long, BigDecimal)]] = None
   def receive = LoggingReceive {
     case CheckingAccountBalances(balances) =>
@@ -73,6 +73,7 @@ class AccountBalanceResponseHandler(savingsAccounts: ActorRef, checkingAccounts:
   }
 
   import context.dispatcher
+
   val timeoutMessager = context.system.scheduler.scheduleOnce(
     250 milliseconds, self, AccountRetrievalTimeout)
 }

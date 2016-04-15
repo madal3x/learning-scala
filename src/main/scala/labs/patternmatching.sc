@@ -1,7 +1,7 @@
 val o: Option[Int] = Some(2)
 o match {
   // match and keep reference
-  case x @ Some(2) => println(x)
+  case x@Some(2) => println(x)
   /*case Some(x) => println(x)*/
   case x: Some[Int] => println(x)
   case None => println("none")
@@ -55,7 +55,8 @@ twoOpCalc(tuple1)
 twoOpCalc(tuple2)
 
 
-val txt = """
+val txt =
+  """
 window.mapDivId = '''map0Div'''
 window.map0Div =
 lat: 46.963432,
@@ -69,8 +70,8 @@ isLodging: true,"""
 
 val latP = "lat: ([^,].*),".r.unanchored
 val lngP = "lng: ([^,].*),".r.unanchored
-Option(txt) collect { case latP(lat) => lat }
-Option(txt) collect { case lngP(lng) => lng }
+Option(txt) collect {case latP(lat) => lat}
+Option(txt) collect {case lngP(lng) => lng}
 "(?s).*lat: (.*),.*".r.findFirstMatchIn(txt)
 //.*lng: (.*^,),
 

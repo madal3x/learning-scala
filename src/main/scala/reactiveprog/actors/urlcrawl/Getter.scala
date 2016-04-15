@@ -11,6 +11,7 @@ object Getter {
 }
 
 class Getter(url: String, depth: Int) extends Actor {
+
   import Getter._
 
   implicit val exec = context.dispatcher

@@ -6,7 +6,7 @@ eq to
 (function types associate to the right)
  */
 def sum(f: Int => Int)(a: Int, b: Int): Int = {
-  if (a > b) 0 else f(a) + sum(f)(a+1, b)
+  if (a > b) 0 else f(a) + sum(f)(a + 1, b)
 }
 
 /*
@@ -14,13 +14,13 @@ sum(f)(a, b) = g(a, b)
  */
 
 def sumInts = sum(x => x) _
-def sumCubes = sum(x => x * x *x) _
+def sumCubes = sum(x => x * x * x) _
 sumInts(1, 3)
 sumCubes(1, 3)
-def fact(x: Int): Int = if (x == 0) 1 else x * fact(x-1)
+def fact(x: Int): Int = if (x == 0) 1 else x * fact(x - 1)
 def sumTL(f: Int => Int)(a: Int, b: Int): Int = {
   def loop(a: Int, acc: Int): Int = {
-    if (a > b) acc else loop(a+1, acc+f(a))
+    if (a > b) acc else loop(a + 1, acc + f(a))
   }
 
   loop(a, 0)

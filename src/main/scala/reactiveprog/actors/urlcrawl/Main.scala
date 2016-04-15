@@ -4,6 +4,7 @@ import akka.actor.{ReceiveTimeout, Props, Actor}
 import scala.concurrent.duration._
 
 class Main extends Actor {
+
   import Receptionist._
 
   val receptionist = context.actorOf(Props[Receptionist], "receptionist")
@@ -26,7 +27,7 @@ class Main extends Actor {
       context.stop(self)
   }
 
-  override def postStop(): Unit ={
+  override def postStop(): Unit = {
     WebClient.shutdown()
   }
 }

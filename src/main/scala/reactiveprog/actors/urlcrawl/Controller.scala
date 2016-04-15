@@ -12,6 +12,7 @@ object Controller {
 }
 
 class Controller extends Actor with ActorLogging {
+
   import Controller._
 
   // the receive timeout is reset by every received message, after which it will shutdown itself
@@ -52,6 +53,8 @@ class Controller extends Actor with ActorLogging {
   }
 
   private def isValidUrl(url: String): Boolean = {
-    Try{new URL(url)}.isSuccess && url != "https://itunes.apple.com:443"
+    Try {
+      new URL(url)
+    }.isSuccess && url != "https://itunes.apple.com:443"
   }
 }

@@ -17,5 +17,5 @@ def merge[T](xs: List[T], ys: List[T])(implicit ord: Ordering[T]): List[T] = (xs
 }
 
 
-msort(List(19,11,14,15))
-msort(List("b","a","e","d"))
+msort(List(19, 11, 14, 15))
+msort(List("b", "a", "e", "d"))

@@ -10,7 +10,8 @@ object Publisher {
   case class PostPublished(seqNo: Long)
 }
 
-class Publisher extends PersistentActor{
+class Publisher extends PersistentActor {
+
   import Publisher._
 
   var expectedSeqNo = 0L
@@ -24,7 +25,7 @@ class Publisher extends PersistentActor{
       else if (seqNo < expectedSeqNo)
         sender() ! PostPublished(seqNo)
       else {
-        persist(PostPublished(seqNo)) { e =>
+        persist(PostPublished(seqNo)) {e =>
           sender() ! e
           expectedSeqNo += 1
         }

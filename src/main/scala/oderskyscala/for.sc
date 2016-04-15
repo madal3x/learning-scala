@@ -4,14 +4,14 @@ def isPrime(a: Int): Boolean =
 def primes(n: Int) = {
   (1 until n) flatMap (i =>
     (1 until i) map (j => (i, j))) filter (p =>
-      isPrime(p._1 + p._2))
+    isPrime(p._1 + p._2))
 }
 
 def primesWithFor(n: Int) =
   for {
     i <- 1 until n
     j <- 1 until i
-    if isPrime(i+j)
+    if isPrime(i + j)
   } yield (i, j)
 
 def primesWithForTranslated(n: Int) =
@@ -24,7 +24,7 @@ def scalarProduct(xs: List[Double], ys: List[Double]) =
 
 primes(10)
 primesWithFor(10)
-scalarProduct(List(1,2,3), List(4,5,6))
+scalarProduct(List(1, 2, 3), List(4, 5, 6))
 
 
 def queens(n: Int): Set[List[Int]] = {
@@ -69,15 +69,15 @@ val bookTitlesWithAuthorNameBird =
   } yield b.title
 
 val bookTitlesWithAuthorNameBirdExpanded =
-  /*books.flatMap(b =>
-    for (a <- b.authors if a startsWith "Bird") yield b.title
-  )*/
-  /*books.flatMap(b =>
-    for (a <- b.authors withFilter (a => a startsWith "Bird")) yield b.title
-  )*/
+/*books.flatMap(b =>
+  for (a <- b.authors if a startsWith "Bird") yield b.title
+)*/
+/*books.flatMap(b =>
+  for (a <- b.authors withFilter (a => a startsWith "Bird")) yield b.title
+)*/
 
   books.flatMap(b =>
-    b.authors withFilter(a => a startsWith "Bird") map
+    b.authors withFilter (a => a startsWith "Bird") map
       (y => b.title))
 
 val bookTitlesWithProgramInTitle =

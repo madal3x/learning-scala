@@ -10,10 +10,10 @@ val calc = new Calculator("HP")
 calc.color
 
 // functions vs methods
-class C{
+class C {
   var acc = 0
-  val methodInc = acc+=1
-  def functionInc = () => acc+=1
+  val methodInc = acc += 1
+  def functionInc = () => acc += 1
 }
 
 val c = new C

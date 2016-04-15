@@ -4,6 +4,7 @@
 // use the Future block for not executing stuff on the webserver thread
 
 import scala.concurrent.{Future, Promise}
+
 case class TaxCut(reduction: Int)
 // either give the type as a type parameter to the factory method:
 val taxcut = Promise[TaxCut]()
@@ -25,6 +26,7 @@ object Government {
 }
 
 import scala.util.{Success, Failure}
+
 val taxCutF: Future[TaxCut] = Government.redeemCampaignPledge()
 println("Now that they're elected, let's see if they remember their promises...")
 taxCutF.onComplete {

@@ -7,17 +7,14 @@ try {
 }
 
 
-try
-{
+try {
   // your scala code here
 }
-catch
-  {
-    case foo: FooException => handleFooException(foo)
-    case bar: BarException => handleBarException(bar)
-    case _: Throwable => println("Got some other kind of exception")
-  }
-finally
-{
+catch {
+  case foo: FooException => handleFooException(foo)
+  case bar: BarException => handleBarException(bar)
+  case _: Throwable => println("Got some other kind of exception")
+}
+finally {
   // your scala code here, such as to close a database connection
 }

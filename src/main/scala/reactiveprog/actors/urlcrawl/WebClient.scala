@@ -29,7 +29,7 @@ object WebClient {
     p.future
   }
 
-  def shutdown(): Unit ={
+  def shutdown(): Unit = {
     client.close()
   }
 }

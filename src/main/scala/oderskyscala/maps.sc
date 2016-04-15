@@ -9,7 +9,7 @@ capitalOfCountry get "US"
 
 val fruit = List("orange", "apple", "pear", "pineapple")
 
-fruit sortWith(_.length < _.length)
+fruit sortWith (_.length < _.length)
 fruit.sorted
 
 
@@ -22,11 +22,11 @@ class Poly(terms0: Map[Int, Double]) {
     this(bindings.toMap)
 
   //def +(other: Poly) = new Poly(terms ++ (other.terms map adjust))
-    // terms ++ other.terms overwrites the values of keys from terms
-    // with the values of common keys from other.terms
-    //new Poly(terms ++ other.terms)
+  // terms ++ other.terms overwrites the values of keys from terms
+  // with the values of common keys from other.terms
+  //new Poly(terms ++ other.terms)
 
-  def +(other: Poly) = new Poly((other.terms foldLeft terms)(addTerm))
+  def +(other: Poly) = new Poly((other.terms foldLeft terms) (addTerm))
 
   def addTerm(terms: Map[Int, Double], term: (Int, Double)): Map[Int, Double] = {
     val (exp, coeff) = term

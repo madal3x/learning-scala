@@ -41,5 +41,5 @@ trait Bank3 {
   def tradeGeneration(market: Market, broker: Account, clientAccounts: List[Account]) =
     clientOrders andThen
       execute(market, broker) andThen
-        allocate(clientAccounts)
+      allocate(clientAccounts)
 }

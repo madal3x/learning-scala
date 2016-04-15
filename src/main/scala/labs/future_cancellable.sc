@@ -22,7 +22,7 @@ def cancellable[T](body: Future[Unit] => T): Cancellable[T] = {
   (cancel, f)
 }
 
-val (cancel, value) = cancellable { cancel =>
+val (cancel, value) = cancellable {cancel =>
   var i = 0
   while (i < 5) {
     if (cancel.isCompleted)

@@ -21,7 +21,7 @@ def sum[T](xs: List[T])(implicit addable: Addable[T]) =
 
 //or the same thing, using context bounds:
 
-def sum2[T : Addable](xs: List[T]) = {
+def sum2[T: Addable](xs: List[T]) = {
   val addable = implicitly[Addable[T]]
   xs.foldLeft(addable.zero)(addable.append)
 }

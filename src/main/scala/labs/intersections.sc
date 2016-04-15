@@ -3,7 +3,7 @@ import util.control.Breaks._
 
 def solution(A: Array[Int], B: Array[Int], K: Int): Int = {
 
-  def paths(A: Array[Int], B: Array[Int]): Unit ={
+  def paths(A: Array[Int], B: Array[Int]): Unit = {
     val starts = A.filterNot(B.contains(_))
     val ends = B.filterNot(A.contains(_))
     val neighbours = mutable.HashMap.empty[Int, mutable.MutableList[Int]].withDefaultValue(mutable.MutableList.empty[Int])
@@ -26,7 +26,7 @@ def solution(A: Array[Int], B: Array[Int], K: Int): Int = {
       while (frontier.nonEmpty) {
         var current = frontier.dequeue()
         for (next <- neighbours(current)) {
-          if ( ! came_from.contains(next)) {
+          if (!came_from.contains(next)) {
             frontier.enqueue(next)
             came_from(next) = current
           }

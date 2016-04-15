@@ -7,13 +7,17 @@ class SecurityPricingActor(exchange: Exchange,
   def receive = {
     case GetPricingInfo(security: Security) =>
       val originalSender = sender
-      val bidAndAskFuture = Future { exchange.getBidAndAsk(security.id) }
-      val lastPriceFuture = Future { backOffice.getLastPrice(security.id) }
+      val bidAndAskFuture = Future {
+        exchange.getBidAndAsk(security.id)
+      }
+      val lastPriceFuture = Future {
+        backOffice.getLastPrice(security.id)
+      }
 
       // parallel futures
       val response = for {
         (bid, ask) <- bidAndAskFuture
-         lastPrice <- lastPriceFuture
+        lastPrice <- lastPriceFuture
       } yield SecurityPricing(bid, ask, lastPrice)
       response map (originalSender ! _)
   }
@@ -22,7 +26,11 @@ class SecurityPricingActor(exchange: Exchange,
 object futures {
   // sequential futures
   val accountsForCustomers = for {
-    customer <- Future { databaseService.getCustomers }
-    account <- Future { accountService.getAccounts(customer.id) }
+    customer <- Future {
+      databaseService.getCustomers
+    }
+    account <- Future {
+      accountService.getAccounts(customer.id)
+    }
   } yield (customer, account)
 }

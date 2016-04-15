@@ -1,7 +1,8 @@
 object Invoker {
   private var history: Seq[() => Unit] = Seq.empty
 
-  def invoke(command: => Unit) { // by-name parameter
+  def invoke(command: => Unit) {
+    // by-name parameter
     command
     history :+= command _
   }

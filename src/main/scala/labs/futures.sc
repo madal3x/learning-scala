@@ -9,7 +9,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 // - once executed, the callbacks are removed from the future object, thus being eligible for GC
 // the ExecutionContext is a threadpool, there's a global implicit implementation
 val f = Future {
-  List(1,2,3,4,5,6)
+  List(1, 2, 3, 4, 5, 6)
 }
 f onFailure {
   case npe: NullPointerException =>

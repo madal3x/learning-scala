@@ -6,11 +6,12 @@ val employeesByName: Map[String, Employee] =
 val dept: scala.Option[String] = employeesByName.get("Joe").map(_.dept)
 
 
-def lift[A,B](f: A => B): Option[A] => Option[B] = x => x map f
+def lift[A, B](f: A => B): Option[A] => Option[B] = x => x map f
 
 lift[Int, Int](x => x + 1)
 
 import java.util.regex._
+
 def pattern(s: String): Option[Pattern] =
   try {
     Some(Pattern.compile(s))
@@ -27,7 +28,7 @@ def bothMatch(pat: String, pat2: String, s: String): Option[Boolean] =
     g <- mkMatcher(pat2)
   } yield f(s) && g(s)
 
-def map2[A,B,C](a: Option[A], b: Option[B])(f: (A, B) => C): Option[C] =
+def map2[A, B, C](a: Option[A], b: Option[B])(f: (A, B) => C): Option[C] =
   a flatMap (aa => b map (bb => f(aa, bb)))
 
 def bothMatch_2(pat1: String, pat2: String, s: String): Option[Boolean] = {
@@ -46,10 +47,10 @@ sequence(List(Some(1), Some(2), Some(3), Some(4)))
 def traverse[A, B](a: List[A])(f: A => Option[B]): Option[List[B]] =
   a match {
     case Nil => Some(Nil)
-    case h::t => map2(f(h), traverse(t)(f))(_ :: _)
+    case h :: t => map2(f(h), traverse(t)(f))(_ :: _)
   }
 def traverse_1[A, B](a: List[A])(f: A => Option[B]): Option[List[B]] =
-  a.foldRight[Option[List[B]]](Some(Nil))((h,t) => map2(f(h),t)(_ :: _))
+  a.foldRight[Option[List[B]]](Some(Nil))((h, t) => map2(f(h), t)(_ :: _))
 def sequenceViaTraverse[A](a: List[Option[A]]): Option[List[A]] =
   traverse(a)(x => x)
 traverse(List("abcde", "def", "a"))(x => if (x.size > 1) Some(x) else None)

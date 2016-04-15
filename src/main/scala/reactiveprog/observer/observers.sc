@@ -1,4 +1,5 @@
 import reactiveprog.observer.{Consolidator, BankAccount}
+
 object observers {
   val a, b = new BankAccount
   val c = new Consolidator(List(a, b))

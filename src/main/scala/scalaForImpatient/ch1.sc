@@ -28,11 +28,11 @@ BigInt.probablePrime(100, scala.util.Random)
 "Hello".distinct
 
 // apply
-"Hello"(4) // shortcut for ->
+"Hello" (4) // shortcut for ->
 "Hello".apply(4)
 // construct objects with apply without new
 BigInt("1234524")
-Array(1,2,3,4,5)
+Array(1, 2, 3, 4, 5)
 
 // exercises
 "Hello".count(_.isLower)
@@ -42,8 +42,8 @@ Array(1,2,3,4,5)
 pow(sqrt(3), 2)
 // random string (radix is base)
 BigInt(200, scala.util.Random).toString(36)
-"Hello"(0)
-"Hello"("Hello".length - 1)
+"Hello" (0)
+"Hello" ("Hello".length - 1)
 // first n elements
 "Hello".take(4)
 // last n elements

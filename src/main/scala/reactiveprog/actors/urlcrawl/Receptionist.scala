@@ -9,7 +9,8 @@ object Receptionist {
   case class Failed(url: String)
 }
 
-class Receptionist extends Actor{
+class Receptionist extends Actor {
+
   import Receptionist._
 
   override def supervisorStrategy = SupervisorStrategy.stoppingStrategy

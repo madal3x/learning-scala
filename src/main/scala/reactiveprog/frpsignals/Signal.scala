@@ -5,7 +5,9 @@ object NoSignal extends Signal[Nothing](???) {
 }
 
 class Signal[T](expr: => T) {
+
   import Signal._
+
   private var myExpr: () => T = _
   private var myValue: T = _
   private var observers: Set[Signal[_]] = Set()

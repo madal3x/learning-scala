@@ -1,7 +1,7 @@
 /**
- * When expected type of expression is Log, yet a Logger instance is used,
- * Scala compiler will automatically wrap that instance in the adapter class.
- */
+  * When expected type of expression is Log, yet a Logger instance is used,
+  * Scala compiler will automatically wrap that instance in the adapter class.
+  */
 
 trait Log {
   def warning(message: String)

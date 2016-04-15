@@ -11,7 +11,9 @@ val s2 = if (x > 0) "positive" else -1
 // separate multiple expressions/statements on the same line with ;
 var r = 0
 var n = 0
-if (n > 0) { r = r * n; n -= 1 }
+if (n > 0) {
+  r = r * n; n -= 1
+}
 
 // when expression is on multiple lines, end the line in smth that makes it clear that it continues (like method, open block)
 val tot = x + s +
@@ -48,7 +50,7 @@ for (i <- 1 to 3; j <- 1 to 3 if i != j) print((10 * i + j) + " ")
 for (i <- 1 to 10) yield i % 3
 
 // functions
-def fac(n : Int) = {
+def fac(n: Int) = {
   var r = 1
   for (i <- 1 to n) r = r * i
   r // return value
@@ -78,7 +80,8 @@ val total2 = sum(1 to 10: _*)
 
 
 // procedures (return type Unit, no preceding = sign)
-def box(s : String) { // Look carefully: no =
+def box(s: String) {
+  // Look carefully: no =
   val border = "-" * s.length + "--\n"
   println(border + "|" + s + "|\n" + border)
 }
@@ -116,15 +119,13 @@ def signum(x: Int) = {
     if (x == 0) 0
     else 1
   }
-}
-
-{}
+} {}
 
 for (i <- 10 to 1 by -1)
   println(i)
 
 def countdown(n: Int): Unit = {
-  n to 1 by -1 foreach(println(_))
+  n to 1 by -1 foreach (println(_))
 }
 countdown(10)
 

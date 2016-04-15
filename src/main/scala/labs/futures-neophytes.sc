@@ -2,6 +2,7 @@
 
 import scala.concurrent.Await
 import scala.util.{Failure, Success, Try}
+
 // Some type aliases, just for getting more meaningful method signatures:
 type CoffeeBeans = String
 type GroundCoffee = String

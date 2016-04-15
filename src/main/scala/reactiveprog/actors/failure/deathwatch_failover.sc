@@ -11,7 +11,9 @@ class Manager extends Actor {
     }
   }
 
-  def backup(): Receive = {???}
+  def backup(): Receive = {
+    ???
+  }
 
   def receive = prime()
 }

@@ -3,7 +3,7 @@ package reactiveprog.frpsignals
 class BankAccount {
   val balance = Var(0)
 
-  def withdraw(amount: Int): Unit ={
+  def withdraw(amount: Int): Unit = {
     require(0 < amount)
     require(amount <= balance())
 
@@ -12,7 +12,7 @@ class BankAccount {
     balance() = b - amount
   }
 
-  def deposit(amount: Int): Unit ={
+  def deposit(amount: Int): Unit = {
     require(0 < amount)
 
     val b = balance()

@@ -3,7 +3,9 @@ import scala.collection.mutable.ArrayBuffer
 
 class Counter {
   private var value = 0
-  def increment() { value += 1}
+  def increment() {
+    value += 1
+  }
   def current = value
 }
 
@@ -82,10 +84,10 @@ class Person6(var name: String, var age: Int) {
 }
 
 /**
- * If there are no parameters after the class name,
- * then the class has a primary constructor with no parameters.
- * That constructor simply executes all statements in the body of the class
- */
+  * If there are no parameters after the class name,
+  * then the class has a primary constructor with no parameters.
+  * That constructor simply executes all statements in the body of the class
+  */
 
 new Person5("booboo")
 new Person5("leo", 25)
@@ -98,7 +100,8 @@ class PersonWithPrivateConstructor private(val id: Int)
 class Network(val name: String) {
 
   // outer points to Network.this
-  outer => class Member(val name: String) {
+  outer =>
+  class Member(val name: String) {
     val contacts = new ArrayBuffer[Member]
     println(name + " inside " + outer.name)
   }

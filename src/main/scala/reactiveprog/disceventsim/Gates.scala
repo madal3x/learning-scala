@@ -11,10 +11,10 @@ abstract class Gates extends Simulation {
 
     def getSignal = sigVal
 
-    def setSignal(s: Boolean): Unit ={
+    def setSignal(s: Boolean): Unit = {
       if (s != sigVal) {
         sigVal = s
-        actions foreach(_())
+        actions foreach (_ ())
       }
     }
 
@@ -25,7 +25,7 @@ abstract class Gates extends Simulation {
   }
 
   def inverter(input: Wire, output: Wire): Unit = {
-    def invertAction(): Unit ={
+    def invertAction(): Unit = {
       val inputSig = input.getSignal
       afterDelay(InverterDelay) {
         output setSignal !inputSig
@@ -35,7 +35,7 @@ abstract class Gates extends Simulation {
     input addAction invertAction
   }
 
-  def andGate(in1: Wire, in2: Wire, output: Wire): Unit ={
+  def andGate(in1: Wire, in2: Wire, output: Wire): Unit = {
     def andAction(): Unit = {
       val in1Sig = in1.getSignal
       val in2Sig = in2.getSignal
@@ -45,7 +45,7 @@ abstract class Gates extends Simulation {
     }
   }
 
-  def orGate(in1: Wire, in2: Wire, output: Wire): Unit ={
+  def orGate(in1: Wire, in2: Wire, output: Wire): Unit = {
     def orAction(): Unit = {
       val in1Sig = in1.getSignal
       val in2Sig = in2.getSignal
@@ -55,15 +55,16 @@ abstract class Gates extends Simulation {
     }
   }
 
-  def orGateAlt(in1: Wire, in2: Wire, output: Wire): Unit ={
+  def orGateAlt(in1: Wire, in2: Wire, output: Wire): Unit = {
     val notIn1, notIn2, notOut = new Wire
-    inverter(in1, notIn1); inverter(in2, notIn2)
+    inverter(in1, notIn1);
+    inverter(in2, notIn2)
     andGate(notIn1, notIn2, notOut)
     inverter(notOut, output)
   }
 
-  def probe(name: String, wire: Wire): Unit ={
-    def probeAction(): Unit ={
+  def probe(name: String, wire: Wire): Unit = {
+    def probeAction(): Unit = {
       println(s"$name $currentTime new-value=${wire.getSignal}")
     }
 
