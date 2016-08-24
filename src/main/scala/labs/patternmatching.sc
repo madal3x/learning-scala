@@ -7,6 +7,11 @@ o match {
   case None => println("none")
   case _ => println("other")
 }
+case class SpecialClass(a: String, b: String)
+
+SpecialClass(null, "4") match {
+  case x@SpecialClass(null, _) => println("null")
+}
 
 
 val NameTagPattern = "Hello my name is (.+) and (.+)".r

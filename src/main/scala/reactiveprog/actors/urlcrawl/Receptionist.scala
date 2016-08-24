@@ -6,7 +6,7 @@ import akka.dispatch.sysmsg.Failed
 object Receptionist {
   case class Get(url: String)
   case class Result(url: String, links: Set[String])
-  case class Failed(url: String)
+  case class Failed(url: String, msg: String)
 }
 
 class Receptionist extends Actor {
@@ -35,7 +35,7 @@ class Receptionist extends Actor {
 
   def enqueueJob(queue: Vector[Job], job: Job): Receive = {
     if (queue.size > QueueLimit) {
-      sender() ! Failed(job.url)
+      sender() ! Failed(job.url, "queue is full")
       running(queue)
     } else
       running(queue :+ job)
@@ -63,7 +63,7 @@ class Receptionist extends Actor {
     // because at any point in time there can be only one
     case Terminated(_) =>
       val job = queue.head
-      job.client ! Failed(job.url)
+      job.client ! Failed(job.url, "terminated")
       context.become(runNext(queue.tail))
 
     case Get(url) =>

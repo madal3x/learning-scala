@@ -21,7 +21,7 @@ class Main extends Actor {
     case Result(url, set) =>
       println(set.toVector.sorted.mkString(s"Results for '$url':\n", "\n", "\n"))
       println(set.toVector.length)
-    case Failed(url) =>
+    case Failed(url, msg) =>
       println(s"Failed to fetch '$url'\n")
     case ReceiveTimeout =>
       context.stop(self)

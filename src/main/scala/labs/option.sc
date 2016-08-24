@@ -69,3 +69,5 @@ case class MS(m1: Option[M], m2: Option[M], m3: Option[M]) {
 }
 
 MS(Some(M(Some(5))), Some(M(None)), None)
+
+Option(5).fold(-1)(v => v)

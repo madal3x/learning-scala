@@ -1,5 +1,9 @@
 package effectiveakka
 
+import java.security.Security
+
+import akka.actor.Actor
+
 import scala.concurrent.Future
 
 class SecurityPricingActor(exchange: Exchange,

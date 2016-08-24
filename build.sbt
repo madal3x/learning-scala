@@ -10,5 +10,8 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor" % "2.4.3",
   "com.typesafe.akka" %% "akka-persistence" % "2.4.3",
   "org.scalaz" %% "scalaz-core" % "7.2.2",
-  "com.typesafe.akka" %% "akka-cluster" % "2.4.3"
+  "com.typesafe.akka" %% "akka-cluster" % "2.4.3",
+  "com.typesafe.akka" %% "akka-stream" % "2.4.4",
+  "com.typesafe.akka" %% "akka-agent" % "2.4.4",
+  "joda-time" % "joda-time" % "2.9.2"
 )

@@ -31,3 +31,13 @@ implicit def stringToDateOption(s: String): Option[Date] =
   Option(dateFormat.parse(s))
 
 "2014-01-01".get.getTime
+
+case class GooglePlace(id: String, city: Option[String])
+
+implicit class GooglePlaceTyper(p: GooglePlace) {
+  def isCity =
+    p.city.isDefined
+}
+
+val c = GooglePlace("123", Some("cit"))
+c.isCity

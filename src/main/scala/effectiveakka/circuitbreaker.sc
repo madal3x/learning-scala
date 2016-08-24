@@ -1,7 +1,9 @@
-import akka.actor.Actor
+import akka.actor.{Actor, ActorLogging}
 import akka.pattern.CircuitBreaker
 
-class CircuitBreakingActor extends Actor {
+import scala.concurrent.duration._
+
+trait CircuitBreakingActor extends Actor with ActorLogging{
 
   import context.dispatcher
 

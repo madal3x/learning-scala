@@ -25,6 +25,13 @@ def handle[T](future: Future[T]): Future[Response] = {
   }
 }
 
+happyFuture onSuccess {
+  case result => println(s"Success: $result")
+}
+bleakFuture onFailure {
+  case t => println(s"Exception: ${t.getMessage}")
+}
+
 val resultHappy = Await.result(handle(happyFuture), 1 second)
 println(resultHappy)
 
