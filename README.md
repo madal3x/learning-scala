@@ -8,3 +8,7 @@
 - http://oldfashionedsoftware.com  
 - http://danielwestheide.com/scala/neophytes.html  
 - http://debasishg.blogspot.nl/
+- https://tpolecat.github.io/
+- http://gigiigig.github.io/
+- http://typelevel.org/
+- http://underscore.io/blog/
