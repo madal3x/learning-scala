@@ -43,6 +43,7 @@ val altul = marius.withFirstName("Altul")
 class RealPerson(private var _name: String) {
   def name = _name
   def changeName(aName: String): Unit = {
+    // not the functional way to assert, as it throws exception
     assert(aName.length > 2, "Greater than 2 chars")
 
     _name = name
