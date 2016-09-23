@@ -10,7 +10,7 @@ class Counter {
 }
 
 val counter = new Counter
-// brackets for methods with mutation
+// brackets for methods with mutation (or side-effect)
 counter.increment()
 // without for accessor
 counter.current
