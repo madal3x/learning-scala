@@ -80,3 +80,23 @@ Option(txt) collect {case lngP(lng) => lng}
 "(?s).*lat: (.*),.*".r.findFirstMatchIn(txt)
 //.*lng: (.*^,),
 
+// pattern matching on the value of a variable (instead of binding to another variable)
+// using capitalized variable names
+val Maxx = 10
+val x = 10
+x match {
+  case Maxx => println(x)
+}
+// using ``
+val maxx = 10
+val xx = 10
+xx match {
+  case `maxx` => println(xx)
+}
+
+// vs when it is actually bound to another variable maxxx with local scope
+val maxxx = 10
+val xxx = 5
+xxx match {
+  case maxxx => println(maxxx)
+}
