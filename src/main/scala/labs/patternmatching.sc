@@ -2,6 +2,7 @@ val o: Option[Int] = Some(2)
 o match {
   // match and keep reference
   case x@Some(2) => println(x)
+  case Some(x: Int) => println(x)
   /*case Some(x) => println(x)*/
   case x: Some[Int] => println(x)
   case None => println("none")
