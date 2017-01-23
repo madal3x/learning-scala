@@ -11,14 +11,10 @@ import scala.concurrent.ExecutionContext.Implicits.global
 def getOrders: Future[List[Int]] = Future(List(1,2,3))
 def getOrderItems(orderId: Int): Future[List[Int]] = Future(List(3,4,5))
 
-val items: ListT[Future, Int] = {
-  val r =
-    for {
-      orderId <- ListT(getOrders)
-      itemId  <- ListT(getOrderItems(orderId))
-    } yield itemId
-
-  r
-}
+val items: ListT[Future, Int] =
+  for {
+    orderId <- ListT(getOrders)
+    itemId  <- ListT(getOrderItems(orderId))
+  } yield itemId
 
 items.run
