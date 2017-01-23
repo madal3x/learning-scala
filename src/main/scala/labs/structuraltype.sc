@@ -12,9 +12,7 @@ class LikeFoo {
   def doFoo: String = "foo"
 }
 
-class LikeFooDelegate extends LikeFoo with Foo{
-  override def doFoo: String = super.doFoo
-}
+class LikeFooDelegate extends LikeFoo with Foo
 
 def takesFoo(foo: Foo) = foo.doFoo
 def takesFooLike(foo: FooLike) = foo.doFoo
