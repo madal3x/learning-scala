@@ -16,3 +16,4 @@ https://www.youtube.com/watch?v=fy_QYnoq9XQ&list=PLMhMDErmC1TdBMxd3KnRfYiBV2ELvL
 - http://underscore.io/blog/
 - https://alexn.org/
 - https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/
+- http://ktoso.github.io/scala-types-of-types/
