@@ -9,6 +9,7 @@ libraryDependencies ++= Seq(
   "org.jsoup" % "jsoup" % "1.8.3",
   "com.typesafe.akka" %% "akka-actor" % "2.4.3",
   "com.typesafe.akka" %% "akka-persistence" % "2.4.3",
+  "org.scalaz" %% "scalaz-core" % "7.2.8",
   "com.typesafe.akka" %% "akka-cluster" % "2.4.3",
   "com.typesafe.akka" %% "akka-stream" % "2.4.4",
   "com.typesafe.akka" %% "akka-agent" % "2.4.4",
@@ -17,15 +18,17 @@ libraryDependencies ++= Seq(
   "com.netflix.rxjava" % "rxjava-scala" % "0.19.1",
   "org.lucee" % "commons-io" % "2.4.0",
   "com.typesafe.scala-logging" %% "scala-logging" % "3.5.0",
-  "ch.qos.logback" % "logback-classic" % "1.1.8"
+  "ch.qos.logback" % "logback-classic" % "1.1.8",
+  "io.verizon.delorean" %% "core" % "1.2.40-scalaz-7.2"
 )
 
-val scalazVersion = "7.2.2"
+val scalazVersion = "7.2.8"
 
 libraryDependencies ++= Seq(
   "org.scalaz" %% "scalaz-core" % scalazVersion,
   "org.scalaz" %% "scalaz-effect" % scalazVersion,
   /*"org.scalaz" %% "scalaz-typelevel" % scalazVersion,*/
+  "org.scalaz" %% "scalaz-concurrent" % scalazVersion,
   "org.scalaz" %% "scalaz-scalacheck-binding" % scalazVersion % "test"
 )
 
