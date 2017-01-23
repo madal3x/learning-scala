@@ -8,11 +8,11 @@ import scala.concurrent.duration._
 
 
 def f1(x: Int): Task[String] = {
-  Task((1 to x).map(_ => "hello").mkString(" "))
+  Task.now((1 to x).map(_ => "hello").mkString(" "))
 }
 
 def f2(s: String): Task[List[String]] = {
-  Task(s.split(" ").toList)
+  Task.now(s.split(" ").toList)
 }
 
 def composeFlatMap(x: Int): Task[List[String]] = {
