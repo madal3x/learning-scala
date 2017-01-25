@@ -1,6 +1,9 @@
+import scala.annotation.tailrec
+
 val a = List(1, 3, 6, 8, 10, 14, 18, 24, 28)
 
 def search(a: List[Int], x: Int): Int = {
+  @tailrec
   def bs(x: Int, min: Int, max: Int): Int = {
     val mid = (max + min) / 2
     if (a(mid) == x)
