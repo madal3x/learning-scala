@@ -101,3 +101,12 @@ val xxx = 5
 xxx match {
   case maxxx => println(maxxx)
 }
+
+case class B(value:Int)
+case class A(s:String, b:B*)
+/*
+val a: A = _
+a match {
+  case A(s, bs @ _*) => bs.foreach(println)
+}
+*/

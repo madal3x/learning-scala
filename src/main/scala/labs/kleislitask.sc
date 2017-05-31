@@ -28,4 +28,6 @@ val composeKleisli: Kleisli[Task, Int, List[String]] =
 val t: Task[List[String]] = composeKleisli(3)
 def f: Future[List[String]] = t.unsafeToFuture()
 
+t.unsafePerformSync
+
 Await.result(f, 100.millis)
