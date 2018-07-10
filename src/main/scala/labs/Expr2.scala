@@ -1,4 +1,5 @@
 // https://slideslive.com/38908182/functional-interpreters-and-you
+// https://slideslive.com/38908795/functional-interpreters-and-you (complete slides)
 
 package labs
 
