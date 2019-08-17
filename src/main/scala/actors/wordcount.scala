@@ -64,6 +64,6 @@ class WordCountMaster extends Actor {
   }
 
   private[this] def finishSorting() {
-    context.system.shutdown()
+    context.system.terminate()
   }
 }

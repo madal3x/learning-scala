@@ -45,7 +45,7 @@ trait Cache[K, V] {
 
 def remove[K](key: K) = ()
 
-class Foo(s: String)
+class Foo(private val s: String)
 // companion object, used as factory
 // apply removes the need of using new
 object Foo {
