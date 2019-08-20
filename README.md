@@ -19,3 +19,4 @@ https://www.youtube.com/watch?v=fy_QYnoq9XQ&list=PLMhMDErmC1TdBMxd3KnRfYiBV2ELvL
 - http://ktoso.github.io/scala-types-of-types/
 - http://timperrett.com/
 - http://dcapwell.github.io/scala-tour/
+- https://fsharpforfunandprofit.com/
