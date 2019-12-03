@@ -119,13 +119,13 @@ def signum(x: Int) = {
     if (x == 0) 0
     else 1
   }
-} {}
+}
 
 for (i <- 10 to 1 by -1)
   println(i)
 
 def countdown(n: Int): Unit = {
-  n to 1 by -1 foreach (println(_))
+  n to 1 by -1 foreach println
 }
 countdown(10)
 
@@ -136,6 +136,19 @@ def unicodeProduct(str: String) = {
   prod
 }
 unicodeProduct("Hello")
+
+def unicodeProductFun(str: String) =
+  str.foldLeft(1)((prod, el) => prod * el.charValue())
+
+unicodeProductFun("Hello")
+
+def unicodeProductForFun(str: String) = {
+  val l = for (char <- str) yield char.charValue().toInt
+
+  l.product
+}
+
+unicodeProductForFun("Hello")
 
 def unicodeProductRecursive(str: String): Int = {
   if (str.length == 1)
